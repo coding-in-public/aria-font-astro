@@ -1,0 +1,69 @@
+---
+import Nav from "../components/Nav.astro";
+import { AstroFont } from "astro-font";
+import { join } from "node:path";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <AstroFont
+      config={[
+        {
+          name: "Ranade",
+          src: [
+            {
+              style: "normal",
+              weight: "500",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Ranade-Medium.woff2"
+              ),
+            },
+            {
+              style: "italic",
+              weight: "500",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Ranade-MediumItalic.woff2"
+              ),
+            },
+            {
+              style: "normal",
+              weight: "700",
+              path: join(process.cwd(), "public", "fonts", "Ranade-Bold.woff2"),
+            },
+            {
+              style: "italic",
+              weight: "700",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Ranade-BoldItalic.woff2"
+              ),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Nav />
+    <main class="min-h-[80vh] grid place-items-center text-6xl font-bold">
+      <slot />
+    </main>
+  </body>
+</html>
